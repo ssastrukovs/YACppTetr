@@ -20,7 +20,6 @@ Example of first start:
 # TODO
 
 - Qt integration
-- gtest/gmock integration
 - Tetris functionality
 - Cross-platform portability?
 - Custom tetris sprites?
