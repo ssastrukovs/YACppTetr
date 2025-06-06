@@ -1,6 +1,8 @@
-# Yet Another C++ Qt Tetris
+# Yet Another C++ Tetris
 
-A simple tetris C++ Qt pet-project
+A simple tetris C++ pet-project
+
+Uses SDL
 
 # Building and running
 
@@ -19,7 +21,6 @@ Example of first start:
 
 # TODO
 
-- Qt integration
 - Tetris functionality
-- Cross-platform portability?
+- Cross-platform portability? (docker?)
 - Custom tetris sprites?
