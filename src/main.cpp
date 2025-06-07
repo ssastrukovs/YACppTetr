@@ -3,16 +3,16 @@
 #include <iostream>
 
 #include "engine/backbone.h"
-#include "util/logger.h"
 
 int main(int argc, char *argv[]) {
-    std::cout << "Hello, from YATetr1!\n";
+    std::cout << "Hello, from YATetr! Close the game to end program\n";
 
     yg::Game game;
-    YRCL_SDL(game.init());
-    YRCL_SDL(game.run());
-    int a;
-    std::cout << "Send any key to shell to exit..." << std::endl;
-    std::cin >> a;
+    if (game.run() != yrc::OK) {
+        std::cout << "Failed to run game" << std::endl;
+        return -1;
+    }
+    std::cout << "Game exited successfully" << std::endl;
+
     return 0;
 }
