@@ -45,9 +45,9 @@ yrc Game::process_input(State &state) {
         case SDL_QUIT: {
             state = State::EXIT;
             break;
+        }
         default: {
             break;
-        }
         }
         }
     }
