@@ -12,7 +12,10 @@ Window::Window(const char *name, size_t w, size_t h) : nm_(name), w_(w), h_(h) {
 
 Window::~Window() { SDL_DestroyWindow(wind_); }
 
-Game::~Game() { SDL_Quit(); }
+Game::~Game() {
+    main_window_.reset();
+    SDL_Quit();
+}
 
 yrc Game::init() {
     yrc rc = SDL_Init(SDL_INIT_VIDEO) ? yrc::OK : yrc::ERROR;
