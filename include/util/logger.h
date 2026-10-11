@@ -15,7 +15,7 @@
     do {                                                              \
         yrc __rc__ = x;                                               \
         if (__rc__ != yrc::OK) {                                      \
-            std::cout << "Error: " << x << ", at " << __FILE__ << ":" \
+            std::cout << "Error: " << __rc__ << ", at " << __FILE__ << ":" \
                       << __LINE__ << std::endl;                       \
             return __rc__;                                            \
         }                                                             \
