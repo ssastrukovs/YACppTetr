@@ -2,6 +2,7 @@ build/
 .*
 !.gitignore
 !.clang-format
+!.github/
 compile_commands.json
 compile_flags.txt
 
