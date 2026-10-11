@@ -12,18 +12,17 @@ option(MYGAME_VENDORED "Use vendored libraries" OFF)
 if(MYGAME_VENDORED)
     add_subdirectory(vendored/sdl EXCLUDE_FROM_ALL)
 else()
-    find_package(SDL2 REQUIRED CONFIG REQUIRED COMPONENTS SDL2)
-    find_package(SDL2 REQUIRED CONFIG COMPONENTS SDL2main)
+    find_package(SDL3 REQUIRED CONFIG)
 endif()
 
 # executables
 add_executable(YACppTetr src/main.cpp)
 
 # linkable libs
-if(TARGET SDL2::SDL2main)
-    target_link_libraries(YACppTetr PRIVATE SDL2::SDL2main)
+if(TARGET SDL3::SDL3main)
+    target_link_libraries(YACppTetr PRIVATE SDL3::SDL3main)
 endif()
-target_link_libraries(YACppTetr PRIVATE SDL2::SDL2)
+target_link_libraries(YACppTetr PRIVATE SDL3::SDL3)
 
 # subdirectories (search for makefiles in them)
 add_subdirectory(tests)
