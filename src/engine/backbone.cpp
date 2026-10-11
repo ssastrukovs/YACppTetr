@@ -5,23 +5,25 @@
 
 namespace yg {
 
-Game::~Game() {
-    SDL_DestroyWindow(wind_);
-    SDL_Quit();
+Window::Window(const char *name, size_t w, size_t h) : nm_(name), w_(w), h_(h) {
+    // TODO: test on non-vulkan gpu?
+    wind_ = SDL_CreateWindow(nm_, w, h, SDL_WINDOW_VULKAN);
 }
+
+Window::~Window() { SDL_DestroyWindow(wind_); }
+
+Game::~Game() { SDL_Quit(); }
 
 yrc Game::init() {
     yrc rc = SDL_Init(SDL_INIT_VIDEO) ? yrc::OK : yrc::ERROR;
+    main_window_ = std::make_unique<Window>("YaTetr", scrw_, scrh_);
+    rc = main_window_->valid() ? yrc::OK : yrc::ERROR;
     return rc;
 }
 
 yrc Game::run() {
     yrc rc;
     YRCL_SDL(init());
-    // TODO: test on non-vulkan gpu?
-    wind_ = SDL_CreateWindow("YATetr", scrw_, scrh_, SDL_WINDOW_VULKAN);
-    rc = wind_ != NULL ? yrc::OK : yrc::ERROR;
-    YRCL_SDL(rc);
     loop();
     return yrc::OK;
 }
