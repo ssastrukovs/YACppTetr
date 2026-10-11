@@ -8,7 +8,7 @@ add_library(TetrEngine STATIC ${SOURCE_FILES})
 target_include_directories(TetrEngine PUBLIC ../../include)
 
 # link sdl
-if(TARGET SDL2::SDL2main)
-    target_link_libraries(TetrEngine PRIVATE SDL2::SDL2main)
+if(TARGET SDL3::SDL3main)
+    target_link_libraries(TetrEngine PRIVATE SDL3::SDL3main)
 endif()
-target_link_libraries(TetrEngine PRIVATE SDL2::SDL2)
+target_link_libraries(TetrEngine PRIVATE SDL3::SDL3)

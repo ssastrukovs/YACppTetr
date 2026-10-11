@@ -11,7 +11,7 @@ Game::~Game() {
 }
 
 yrc Game::init() {
-    yrc rc = SDL_Init(SDL_INIT_EVERYTHING) ? yrc::ERROR : yrc::OK;
+    yrc rc = SDL_Init(SDL_INIT_VIDEO) ? yrc::OK : yrc::ERROR;
     return rc;
 }
 
@@ -19,9 +19,7 @@ yrc Game::run() {
     yrc rc;
     YRCL_SDL(init());
     // TODO: test on non-vulkan gpu?
-    wind_ = SDL_CreateWindow("YATetr", SDL_WINDOWPOS_CENTERED,
-                             SDL_WINDOWPOS_CENTERED, scrw_, scrh_,
-                             SDL_WINDOW_VULKAN);
+    wind_ = SDL_CreateWindow("YATetr", scrw_, scrh_, SDL_WINDOW_VULKAN);
     rc = wind_ != NULL ? yrc::OK : yrc::ERROR;
     YRCL_SDL(rc);
     loop();
@@ -42,7 +40,7 @@ yrc Game::process_input(State &state) {
 
     if (SDL_PollEvent(&e)) {
         switch (e.type) {
-        case SDL_QUIT: {
+        case SDL_EVENT_QUIT: {
             state = State::EXIT;
             break;
         }

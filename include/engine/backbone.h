@@ -1,7 +1,7 @@
 #ifndef __ENGINE_BACKBONE_H__
 #define __ENGINE_BACKBONE_H__
 
-#include <SDL.h>
+#include <SDL3/SDL.h>
 
 #include <cstddef>  // size_t
 

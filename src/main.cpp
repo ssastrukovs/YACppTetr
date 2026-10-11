@@ -1,5 +1,7 @@
 #include "main.h"
 
+#include <SDL3/SDL_main.h>  // IWYU pragma: keep
+
 #include <iostream>
 
 #include "engine/backbone.h"
